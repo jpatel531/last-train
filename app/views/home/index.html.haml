@@ -1,0 +1,40 @@
+.container{style: "margin-top: 60px", :"ng-controller" => "AppCtrl" }
+
+	.row
+		%form.form-group{:"ng-submit" => "findJourneys()"}
+			%label Get me the last times from
+			%input.form-control.text-center{:"ng-model" => "fromLocation"}
+
+			%label to
+			%input.form-control.text-center{:"ng-model" => "toLocation"}
+
+			%label your Twilio-registered phone number
+			%input.form-control.text-center{:"ng-model" => "phoneNumber"}
+
+			%button.btn.btn-default.center-block{style: "margin-top: 30px"} Go!
+	
+
+	.panel.panel-default{:"ng-repeat" => "journey in lastJourneys.journeys", :"ng-controller" => "JourneyInstanceCtrl"}
+		.panel-heading 
+			%h3.panel-title 
+				%a{href: '#', :"ng-click" => "selectJourney(journey)"} Duration: {{journey.duration}} minutes - {{journey.startDateTime}} to {{journey.arrivalDateTime}}
+
+		.panel-body 
+			%p{:"ng-repeat" => "leg in journey.legs"} {{leg.instruction.summary}}
+			%form.form-group{:"ng-show" => "showOptions", :"ng-submit" => "sendToTwilio()"}
+				.input-group
+					%span
+						%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "now"}
+					%label Send text now?
+				.input-group
+					%span
+						%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "then"}
+					%label Send text an hour before departure?
+
+				
+				%button.btn.btn-default Choose this journey.
+
+
+	
+
+
