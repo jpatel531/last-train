@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'underscore-rails'
 gem 'angularjs-rails'
 
+gem 'delayed_job_active_record'
+
 gem 'haml-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
