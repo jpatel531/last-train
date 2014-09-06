@@ -8,7 +8,9 @@ json.array! @journeys do |journey|
 	json.fullInstructions do
 		json.array! journey.instructions.values.flatten
 	end
-
+	json.mapPath do
+		json.array! journey.map_path
+	end
 
 end
 

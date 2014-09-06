@@ -38,7 +38,18 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
   $scope.findJourneys = function(){
     NProgress.start();
     $http.post('/journeys', {from: $scope.fromLocation, to: $scope.toLocation}).success(function(data){
-      $scope.lastJourneys = data
+      $scope.lastJourneys = data;
+
+      map.setCenter($scope.lastJourneys[0].mapPath[0][0], $scope.lastJourneys[0].mapPath[0][1]);
+
+      map.drawPolyline({
+        path: $scope.lastJourneys[0].mapPath,
+        strokeColor: '#131540',
+        strokeOpacity: 0.6,
+        strokeWeight: 6
+      });      
+
+      $scope.showMap = true;
       NProgress.done();
     })
   }
