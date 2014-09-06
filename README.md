@@ -26,3 +26,5 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 ##Planned Extensions
 
 * To use the JourneyPlanner gem I made while building this app.
+* To polish up the styling.
+* To create an app version with Ionic.
