@@ -3,12 +3,15 @@ var app = angular.module('app', []);
 
 app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 
+
+
 	var map = new GMaps({
 		div: '#map',
 		lat: -12.043333,
 		lng: -77.028333
 	});
 
+  google.maps.event.trigger(map, 'resize');
 
 	$scope.getLocation = function(){
 			NProgress.start();
@@ -19,7 +22,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 			    $scope.longitude = position.coords.longitude;
 			    $scope.$apply(function(){
 				    $scope.fromLocation = $scope.longitude + "," + $scope.latitude 
-				    NProgress.done();
+            NProgress.done();
 			    })
 					console.log($scope.fromLocation)
 			  },
