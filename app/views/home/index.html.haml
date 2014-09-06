@@ -28,9 +28,9 @@
 
 			.row.location-button-wrapper.center-block.text-center
 				.map-marker
-					%span.glyphicon.glyphicon-send{:"ng-click" => "findJourneys()" }
+					%span.glyphicon.glyphicon-send{:"ng-click" => "findJourneys()"}
 		
-	.container.section{:"ng-show" => "lastJourneys"}
+	.container.section.journeys{:"ng-show" => "lastJourneys"}
 		.panel.panel-default{:"ng-repeat" => "journey in lastJourneys", :"ng-controller" => "JourneyInstanceCtrl"}
 			.panel-heading 
 				%h3.panel-title 
@@ -38,7 +38,7 @@
 
 			.panel-body 
 				%p{:"ng-repeat" => "description in journey.summary"} {{description.text}}
-				%form.form-group.pull-right{:"ng-show" => "showOptions", :"ng-submit" => "phoneNumber && sendToTwilio()"}
+				%form.form-group.when-send.pull-right{:"ng-show" => "showOptions", :"ng-submit" => "phoneNumber && sendToTwilio()"}
 					.input-group
 						%span
 							%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "now"}
@@ -53,7 +53,8 @@
 
 				.confirmation{:"ng-show" => "success"}
 
-					%p If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:
+					%p.text-sent 
+						If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:
 
 					%blockquote	Remember to leave at {{journey.startDateTime | date: 'h:mma'}}. {{instructions}}
 	}

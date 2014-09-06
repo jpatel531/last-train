@@ -1,9 +1,11 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['duScroll']);
 
 
-app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
+app.controller('AppCtrl', ['$scope', '$http', '$document', '$timeout', function($scope, $http, $document, $timeout){
 
-
+  var scrollToList = function(){
+    $document.scrollTo(angular.element('.container.journeys'), null, 1000)
+  }
 
 	var map = new GMaps({
 		div: '#map',
@@ -54,6 +56,11 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 
       $scope.showMap = true;
       NProgress.done();
+
+      $timeout(function(){
+        scrollToList();
+      }, 1000)
+
     })
   }
 
