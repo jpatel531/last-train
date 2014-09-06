@@ -67,7 +67,7 @@ GEM
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    journey_planner (0.1.1)
+    journey_planner (0.1.2)
       httparty
       recursive-open-struct
     jquery-rails (3.1.2)
