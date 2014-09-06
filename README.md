@@ -20,7 +20,7 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 * GMapsJS
 * Twilio for Ruby
 * TFL Journey Planner API
-* The journey_planner gem
+* [journey_planner](https://github.com/jpatel531/journey_planner_gem)
 * HAML
 * jBuilder
 * Bootstrap
