@@ -14,6 +14,5 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require underscore
-//= require nprogress
 //= require angular
 //= require_tree .
