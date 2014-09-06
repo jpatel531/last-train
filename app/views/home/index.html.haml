@@ -27,7 +27,7 @@
 
 		.panel-body 
 			%p{:"ng-repeat" => "leg in journey.legs"} {{leg.instruction.summary}}
-			%form.form-group{:"ng-show" => "showOptions", :"ng-submit" => "sendToTwilio()"}
+			%form.form-group{:"ng-show" => "showOptions", :"ng-submit" => "phoneNumber && sendToTwilio()"}
 				.input-group
 					%span
 						%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "now"}
@@ -40,6 +40,11 @@
 				
 				%button.btn.btn-default Choose this journey.
 
+			.confirmation{:"ng-show" => "success"}
+
+				%p If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:
+
+				%blockquote	Remember to leave at {{startDateTime | date: 'h:mma'}}. {{instructions}}
 
 	
 

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   get "/" => "home#index"
 
+  get "/confirmation" => "texts#confirmation"
 
 end

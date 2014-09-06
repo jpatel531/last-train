@@ -78,16 +78,17 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
       }
     })
     $scope.instructions = listOfInstructions.join(". ");
-    // sendToTwilio();
   }
 
 
   $scope.sendToTwilio = function(){
     data = {phone_number: $scope.phoneNumber, instructions: $scope.instructions, departure_time: $scope.selectedJourney.startDateTime, when_send: $scope.whenSend }
-    $http.post('/texts', data)
+    $http.post('/texts', data).success(function(data){
+    	$scope.success = data;
+    });
 
   }
 
 
-}]);
+}])
 
