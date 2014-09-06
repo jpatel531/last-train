@@ -1,29 +1,40 @@
-var app = angular.module('app', ['firebase']);
-
-app.controller('LoginCtrl', ['$scope', '$firebase', '$firebaseSimpleLogin', function($scope, $firebase, $firebaseSimpleLogin){
-
-  var ref = new Firebase("https://lasttrain.firebaseio.com/");
-
-  var authClient = $firebaseSimpleLogin(ref);
-
-    $scope.loginWithFacebook = function() {
-        authClient.$login("facebook").then(function(user) {
-        console.log("Logged in as: " + user.uid);
-        $scope.user = user
-      }, function(error) {
-        console.error("Login failed: " + error);
-      });
-    }
-
-
-
-}]);
-
+var app = angular.module('app', []);
 
 
 app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 
+	var map = new GMaps({
+		div: '#map',
+		lat: -12.043333,
+		lng: -77.028333
+	});
 
+
+	$scope.getLocation = function(){
+			GMaps.geolocate({
+			  success: function(position) {
+			    map.setCenter(position.coords.latitude, position.coords.longitude);
+			    $scope.latitude = position.coords.latitude;
+			    $scope.longitude = position.coords.longitude;
+			    $scope.$apply(function(){
+				    $scope.fromLocation = $scope.longitude + "," + $scope.latitude 
+
+			    })
+					console.log($scope.fromLocation)
+			  },
+			  error: function(error) {
+			    // alert('Geolocation failed: '+error.message);
+			  },
+			  not_supported: function() {
+			    // alert("Your browser does not support geolocation");
+			  },
+			  always: function() {
+			    // alert("Done!");
+			  }
+		});
+	};
+
+  
 
   $scope.findJourneys = function(){
     var fromLocation = $scope.fromLocation.replace(" ", "+");

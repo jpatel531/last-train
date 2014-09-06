@@ -12,7 +12,7 @@ class Text < ActiveRecord::Base
 			from: 441295477003,
 			to: to,
 			body: instructions
-			)
+		)
 	end
 
 

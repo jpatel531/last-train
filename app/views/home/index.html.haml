@@ -1,5 +1,9 @@
 .container{style: "margin-top: 60px", :"ng-controller" => "AppCtrl" }
 
+	%btn.btn.btn-default{:"ng-click" => "getLocation(); showMap = true"} Get my location
+
+	#map{:"ng-show" => "showMap", style: "height: 500px; width: 500px" }
+
 	.row
 		%form.form-group{:"ng-submit" => "findJourneys()"}
 			%label Get me the last times from
