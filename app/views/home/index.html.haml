@@ -1,11 +1,13 @@
 .container{style: "margin-top: 60px", :"ng-controller" => "AppCtrl" }
 
+	%h3.text-center In order to use this app you must sign up for a <a href='https://www.twilio.com/try-twilio'> free Twilio account </a>
+
 	%btn.btn.btn-default.center-block{:"ng-click" => "getLocation(); showMap = true", style: "width: 130px"} Get my location
 
 	#map.center-block{:"ng-show" => "showMap", style: "height: 350px; width: 350px" }
 
 	.row
-		%form.form-group{:"ng-submit" => "findJourneys()"}
+		%form.form-group{:"ng-submit" => "fromLocation && toLocation && findJourneys()"}
 			%label Get me the last times from
 			%input.form-control.text-center{:"ng-model" => "fromLocation"}
 
