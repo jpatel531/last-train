@@ -38,5 +38,4 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 
 ##Planned Extensions
 
-* To polish up the styling.
 * To create a mobile version with Ionic.
