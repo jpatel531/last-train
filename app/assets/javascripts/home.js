@@ -7,8 +7,8 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 
 	var map = new GMaps({
 		div: '#map',
-		lat: -12.043333,
-		lng: -77.028333
+		lat: 51.507351,
+		lng: -0.127758
 	});
 
   google.maps.event.trigger(map, 'resize');
