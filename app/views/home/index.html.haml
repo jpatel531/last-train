@@ -1,6 +1,6 @@
 .container{style: "margin-top: 60px", :"ng-controller" => "AppCtrl" }
 
-	%btn.btn.btn-default{:"ng-click" => "getLocation(); showMap = true"} Get my location
+	%btn.btn.btn-default.center-block{:"ng-click" => "getLocation(); showMap = true", style: "width: 130px"} Get my location
 
 	#map{:"ng-show" => "showMap", style: "height: 500px; width: 500px" }
 

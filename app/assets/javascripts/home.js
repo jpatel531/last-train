@@ -23,13 +23,13 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 					console.log($scope.fromLocation)
 			  },
 			  error: function(error) {
-			    // alert('Geolocation failed: '+error.message);
+			    	console.log('Geolocation failed: '+error.message);
 			  },
 			  not_supported: function() {
-			    // alert("Your browser does not support geolocation");
+			    console.log("Your browser does not support geolocation");
 			  },
 			  always: function() {
-			    // alert("Done!");
+			    console.log("Done!");
 			  }
 		});
 	};
