@@ -19,7 +19,7 @@ gem 'twilio-ruby'
 
 gem 'rails_12factor'
 
-
+gem 'nprogress-rails'
 
 
 

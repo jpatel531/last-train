@@ -83,9 +83,6 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 
 
   $scope.sendToTwilio = function(){
-    // $location.url('/confirmation')
-
-
     data = {phone_number: $scope.phoneNumber, instructions: $scope.instructions, departure_time: $scope.selectedJourney.startDateTime, when_send: $scope.whenSend }
     $http.post('/texts', data)
 
