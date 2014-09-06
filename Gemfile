@@ -10,6 +10,8 @@ gem 'sass-rails', '~> 4.0.3'
 
 gem 'bootstrap-sass'
 
+gem 'journey_planner'
+
 gem 'underscore-rails'
 gem 'angularjs-rails'
 

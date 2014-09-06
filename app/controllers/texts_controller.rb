@@ -14,8 +14,7 @@ class TextsController < ApplicationController
 		render json: {success: 200}
 	end
 
-	def confirmation
-	end
+
 
 
 

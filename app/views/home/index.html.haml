@@ -20,13 +20,13 @@
 			%button.btn.btn-default.center-block{style: "margin-top: 30px"} Go!
 	
 
-	.panel.panel-default{:"ng-repeat" => "journey in lastJourneys.journeys", :"ng-controller" => "JourneyInstanceCtrl"}
+	.panel.panel-default{:"ng-repeat" => "journey in lastJourneys", :"ng-controller" => "JourneyInstanceCtrl"}
 		.panel-heading 
 			%h3.panel-title 
 				%a{href: '#', :"ng-click" => "selectJourney(journey)"} Duration: {{journey.duration}} minutes - {{journey.startDateTime | date: 'short'}} to {{journey.arrivalDateTime | date: 'short'}}
 
 		.panel-body 
-			%p{:"ng-repeat" => "leg in journey.legs"} {{leg.instruction.summary}}
+			%p{:"ng-repeat" => "description in journey.summary"} {{description.text}}
 			%form.form-group{:"ng-show" => "showOptions", :"ng-submit" => "phoneNumber && sendToTwilio()"}
 				.input-group
 					%span

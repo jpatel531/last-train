@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get "/confirmation" => "texts#confirmation"
 
+  resources :journeys
+
 end
