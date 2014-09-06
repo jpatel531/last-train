@@ -6,11 +6,11 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 
 [Here is a link to Last Train on Heroku.](http://last-train.herokuapp.com)
 
-![Image 1](https://raw.githubusercontent.com/jpatel531/funstagram/master/screenshots/last-train1.jpg)
+![Image 1](https://raw.githubusercontent.com/jpatel531/last-train/master/screenshots/last-train1.jpg)
 
-![Image 2](https://raw.githubusercontent.com/jpatel531/funstagram/master/screenshots/last-train2.jpg)
+![Image 2](https://raw.githubusercontent.com/jpatel531/last-train/master/screenshots/last-train2.jpg)
 
-![Image 3](https://raw.githubusercontent.com/jpatel531/funstagram/master/screenshots/last-train3.jpg)
+![Image 3](https://raw.githubusercontent.com/jpatel531/last-train/master/screenshots/last-train3.jpg)
 
 ##Objectives
 
