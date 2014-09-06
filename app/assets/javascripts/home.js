@@ -72,7 +72,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
     // $location.url('/confirmation')
 
 
-    data = {phone_number: $scope.phoneNumber, instructions: $scope.instructions, departureTime: $scope.selectedJourney.startDateTime, when: $scope.whenSend }
+    data = {phone_number: $scope.phoneNumber, instructions: $scope.instructions, departure_time: $scope.selectedJourney.startDateTime, when_send: $scope.whenSend }
     $http.post('/texts', data)
 
   }
