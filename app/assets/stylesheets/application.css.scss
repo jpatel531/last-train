@@ -11,9 +11,95 @@
  * file per style scope.
  *
  *= require nprogress
+ *= require jquery.fullPage
  *= require_tree .
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import url(http://fonts.googleapis.com/css?family=PT+Serif);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn|Merriweather:400,300|Old+Standard+TT:400,700|Roboto+Slab:400,100);@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+
+h1 {
+	font-family: 'Railway'; 
+   font-weight: normal; 
+   font-style: normal; 
+   font-size: 72px;
+}
+
+h2, h3.panel-title {
+	font-family: 'Railway'; 
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+   // font-family: 'Railway'; 
+   // font-family: 'Old Standard TT', serif;
+   font-family: 'Roboto Slab', serif;
+   font-size: 16px;
+   font-weight: 300;
+}
+
+p, label, input, button, body {
+	// font-family: 'Merriweather', serif;
+	// font-family: 'Old Standard TT', serif;
+	// font-family: 'Droid Serif', serif;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 300;	
+}
+
+input.form-control, input.form-control:focus {
+	outline: none;
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+span.glyphicon-map-marker {
+	font-size: 28px;
+}
+
+span.glyphicon-map-marker:hover {
+	color: red;
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+span.glyphicon.glyphicon-send {
+	font-size: 28px;
+}
+
+
+
+span.glyphicon.glyphicon-send:hover {
+	color: green;
+	cursor: pointer;
+}
+
+form.form-group.main-form input {
+	margin-top: 1px;
+	margin-bottom: 11px;
+	font-size: 18px;
+	color: black
+}
+
+form.form-group.main-form input::-webkit-input-placeholder {
+   color: black;
+}
+
+div.panel-heading {
+	background-color: white !important;
+
+}
+
+div.confirmation blockquote {
+	margin-top: 20px;
+	font-size: 12px;
+	font-weight: 400;
+	margin-top: 50px;
+}

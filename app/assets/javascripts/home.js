@@ -11,7 +11,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 		lng: -0.127758
 	});
 
-  google.maps.event.trigger(map, 'resize');
+
 
 	$scope.getLocation = function(){
 			NProgress.start();

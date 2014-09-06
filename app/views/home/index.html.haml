@@ -1,52 +1,63 @@
-.container{style: "margin-top: 60px", :"ng-controller" => "AppCtrl" }
+#fullpage{:"ng-controller" => "AppCtrl" }
+	.container.section
 
-	%h3.text-center In order to use this app you must sign up for a <a href='https://www.twilio.com/try-twilio'> free Twilio account </a>
+		%h1.text-center	Last Train
+		%h2.text-center An app that texts you the details of your last train home.
 
-	%btn.btn.btn-default.center-block{:"ng-click" => "getLocation(); showMap = true", style: "width: 130px"} Get my location
 
-	.map-container
-		#map.center-block{style: "height: 350px; width: 350px" }
+		%h3.text-center In order to use this app, sign up for a <a href='https://www.twilio.com/try-twilio'> free Twilio account </a>
 
-	.row
-		%form.form-group{:"ng-submit" => "fromLocation && toLocation && findJourneys()"}
-			%label Get me the last times from
-			%input.form-control.text-center{:"ng-model" => "fromLocation"}
+	.container.section
 
-			%label to
-			%input.form-control.text-center{:"ng-model" => "toLocation"}
+		.map-container
 
-			%label your Twilio-registered phone number
-			%input.form-control.text-center{:"ng-model" => "phoneNumber"}
+			.row.location-button-wrapper.center-block.text-center
+				.location
+					%span.glyphicon.glyphicon-map-marker{:"ng-click" => "getLocation(); showMap = true"}
+			#map.center-block{style: "height: 300px; width: 75%; margin-top: 30px; margin-bottom: 20px" }
 
-			%button.btn.btn-default.center-block{style: "margin-top: 30px"} Go!
-	
-
-	.panel.panel-default{:"ng-repeat" => "journey in lastJourneys", :"ng-controller" => "JourneyInstanceCtrl"}
-		.panel-heading 
-			%h3.panel-title 
-				%a{href: '#', :"ng-click" => "selectJourney(journey)"} Duration: {{journey.duration}} minutes - {{journey.startDateTime | date: 'short'}} to {{journey.arrivalDateTime | date: 'short'}}
-
-		.panel-body 
-			%p{:"ng-repeat" => "description in journey.summary"} {{description.text}}
-			%form.form-group{:"ng-show" => "showOptions", :"ng-submit" => "phoneNumber && sendToTwilio()"}
-				.input-group
-					%span
-						%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "now"}
-					%label Send text now?
-				.input-group
-					%span
-						%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "then"}
-					%label Send text an hour before departure?
-
+		
+		.row
+			%form.form-group.main-form{:"ng-submit" => "fromLocation && toLocation && findJourneys()"}
 				
-				%button.btn.btn-default Choose this journey.
+				%input.form-control.text-center{:"ng-model" => "fromLocation", placeholder: "Take me from here"}
 
-			.confirmation{:"ng-show" => "success"}
+				%input.form-control.text-center{:"ng-model" => "toLocation", placeholder: "to here"}
 
-				%p If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:
+				%input.form-control.text-center{:"ng-model" => "phoneNumber", placeholder: "Enter your Twilio-registered phone number"}
 
-				%blockquote	Remember to leave at {{journey.startDateTime | date: 'h:mma'}}. {{instructions}}
+			.row.location-button-wrapper.center-block.text-center
+				.map-marker
+					%span.glyphicon.glyphicon-send{:"ng-click" => "findJourneys()" }
+		
+	.container.section{:"ng-show" => "lastJourneys"}
+		.panel.panel-default{:"ng-repeat" => "journey in lastJourneys", :"ng-controller" => "JourneyInstanceCtrl"}
+			.panel-heading 
+				%h3.panel-title 
+					%a{href: '#', :"ng-click" => "selectJourney(journey)"} Duration: {{journey.duration}} minutes - {{journey.startDateTime | date: 'h:mma'}} to {{journey.arrivalDateTime | date: 'h:mma'}}
 
-	
+			.panel-body 
+				%p{:"ng-repeat" => "description in journey.summary"} {{description.text}}
+				%form.form-group.pull-right{:"ng-show" => "showOptions", :"ng-submit" => "phoneNumber && sendToTwilio()"}
+					.input-group
+						%span
+							%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "now"}
+						%label Send text now?
+					.input-group
+						%span
+							%input{type: 'checkbox', :"ng-model" => "whenSend", :"ng-true-value" => "then"}
+						%label Send text an hour before departure?
+
+					
+					%button.btn.btn-default Choose this journey
+
+				.confirmation{:"ng-show" => "success"}
+
+					%p If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:
+
+					%blockquote	Remember to leave at {{journey.startDateTime | date: 'h:mma'}}. {{instructions}}
+	}
+
+		
 
 

@@ -13,6 +13,13 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery.slimscroll.min
+//= require jquery.fullPage
+//= require jquery.easings.min
 //= require underscore
 //= require angular
 //= require_tree .
+
+$(document).ready(function() {
+    $('#fullpage').fullpage({scrollingSpeed: 400}, {loopTop: false}, {loopBottom: false}, {loopHorizontal: false});
+});
