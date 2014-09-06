@@ -11,7 +11,8 @@ class TextsController < ApplicationController
 		puts directions
 		text = Text.create(to: params[:phone_number], instructions: directions)
 		text.delay(run_at: time).send_message
-		render json: {success: 200}
 	end
+
+
 
 end

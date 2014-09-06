@@ -23,7 +23,7 @@
 	.panel.panel-default{:"ng-repeat" => "journey in lastJourneys.journeys", :"ng-controller" => "JourneyInstanceCtrl"}
 		.panel-heading 
 			%h3.panel-title 
-				%a{href: '#', :"ng-click" => "selectJourney(journey)"} Duration: {{journey.duration}} minutes - {{journey.startDateTime}} to {{journey.arrivalDateTime}}
+				%a{href: '#', :"ng-click" => "selectJourney(journey)"} Duration: {{journey.duration}} minutes - {{journey.startDateTime | date: 'short'}} to {{journey.arrivalDateTime | date: 'short'}}
 
 		.panel-body 
 			%p{:"ng-repeat" => "leg in journey.legs"} {{leg.instruction.summary}}
