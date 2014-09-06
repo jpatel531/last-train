@@ -8,6 +8,7 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 * To learn about and use Delayed::Job for scheduling processes in ActiveRecord.
 * To learn about geolocation
 * To use Twilio in a web application context
+* To implement my unofficial [TFL Journey Planner gem](https://github.com/jpatel531/journey_planner_gem)
 * To create an app that I myself would use regularly.
 
 ##Technologies
@@ -19,12 +20,13 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 * GMapsJS
 * Twilio for Ruby
 * TFL Journey Planner API
+* The journey_planner gem
 * HAML
+* jBuilder
 * Bootstrap
 * Postgresql
 
 ##Planned Extensions
 
-* To use the JourneyPlanner gem I made while building this app.
 * To polish up the styling.
-* To create an app version with Ionic.
+* To create a mobile version with Ionic.
