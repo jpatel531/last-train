@@ -11,6 +11,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 
 
 	$scope.getLocation = function(){
+			NProgress.start();
 			GMaps.geolocate({
 			  success: function(position) {
 			    map.setCenter(position.coords.latitude, position.coords.longitude);
@@ -18,7 +19,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 			    $scope.longitude = position.coords.longitude;
 			    $scope.$apply(function(){
 				    $scope.fromLocation = $scope.longitude + "," + $scope.latitude 
-
+				    NProgress.done();
 			    })
 					console.log($scope.fromLocation)
 			  },
@@ -37,6 +38,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
   
 
   $scope.findJourneys = function(){
+  	NProgress.start();
     var fromLocation = $scope.fromLocation.replace(" ", "+");
     var toLocation = $scope.toLocation.replace(" ", "+");
 
@@ -45,6 +47,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
     }).then(function(){
       $http.get("http://api.tfl.gov.uk"  + $scope.journeys.searchCriteria.timeAdjustments.latest.uri).success(function(data){
         $scope.lastJourneys = data;
+        NProgress.done();
       })
     })
 

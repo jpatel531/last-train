@@ -2,7 +2,7 @@
 
 	%btn.btn.btn-default.center-block{:"ng-click" => "getLocation(); showMap = true", style: "width: 130px"} Get my location
 
-	#map{:"ng-show" => "showMap", style: "height: 500px; width: 500px" }
+	#map.center-block{:"ng-show" => "showMap", style: "height: 350px; width: 350px" }
 
 	.row
 		%form.form-group{:"ng-submit" => "findJourneys()"}
