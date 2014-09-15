@@ -26,10 +26,95 @@
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+        <h1 class="title">Last Train</h1>
       </ion-header-bar>
       <ion-content ng-controller="TestCtrl">
-      {{lastJourneys}}
+      <!-- {{lastJourneys}} -->
+
+      <div class="list list-inset">
+          
+        <label class="item item-input">
+          <input type="text" 
+          placeholder="Take me from here"
+          ng-model="fromLocation">
+        </label>
+
+        <label class="item item-input">
+          <input type="text" 
+          placeholder="to here"
+          ng-model="toLocation">
+        </label>
+
+        <label class="item item-input">
+          <input type="text" 
+          placeholder="Enter your Twilio registered phone number"
+          ng-model="phoneNumber">
+        </label>
+
+        <button class="button button-positive center" ng-click="toLocation && fromLocation && findJourneys()">
+          Go!
+        </button>
+
+      </div>
+
+      <ul class="list" ng-show="lastJourneys">
+        
+        <li class="item" 
+        ng-repeat="journey in lastJourneys"
+        ng-controller="JourneyInstanceCtrl"
+        >
+          <ion-slide-box show-pager="false">
+            <ion-slide>
+                Duration: {{journey.duration}} minutes - {{journey.startDateTime | date: 'h:mma'}} to {{journey.arrivalDateTime | date: 'h:mma'}}
+                <br>
+                <br>
+                <p ng-repeat="description in journey.summary">
+                  {{description.text}}
+                </p>
+            </ion-slide>
+
+
+            <ion-slide class="list">
+              <label class="item item-radio"  ng-click="whenSend = 'now'">
+                <input type="radio" name="group">
+                <div class="item-content">
+                  Send text now?
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+             </label>
+
+            <label class="item item-radio" ng-click="whenSend = 'then'">
+                <input type="radio" name="group">
+
+                <div class="item-content">
+                  Send text an hour before departure?
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+             </label>
+
+
+
+             <button class="button button-positive center" ng-click="phoneNumber && selectJourney(journey) ; sendToTwilio()" ng-hide="success">
+              Choose this journey
+              </button>
+
+              <div ng-show="success">
+                <p> If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:</p>
+                <blockquote> 
+                  Remember to leave at {{journey.startDateTime | date: 'h:mma'}}. {{instructions}}
+                </blockquote>
+              </div>
+
+            </ion-slide>
+
+          </ion-slide-box>
+
+        </li>
+
+      </ul>      
+
+
+
       </ion-content>
     </ion-pane>
   </body>

@@ -10,7 +10,10 @@ class TextsController < ApplicationController
 		directions = "Remember to leave at #{departure_time}. #{params[:instructions]}"
 	
 		text = Text.create(to: params[:phone_number], instructions: directions)
-		text.delay(run_at: time).send_message
+		
+		# text.delay(run_at: time).send_message
+		text.send_message
+
 		render json: {success: 200}
 	end
 
