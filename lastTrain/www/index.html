@@ -87,7 +87,7 @@
                 <input type="radio" name="group">
 
                 <div class="item-content">
-                  Send text an hour before departure?
+                  Send an hour before departure?
                 </div>
                 <i class="radio-icon ion-checkmark"></i>
              </label>
@@ -98,11 +98,13 @@
               Choose this journey
               </button>
 
-              <div ng-show="success">
-                <p> If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:</p>
-                <blockquote> 
-                  Remember to leave at {{journey.startDateTime | date: 'h:mma'}}. {{instructions}}
-                </blockquote>
+              <div class="card" ng-show="success">
+                <div class="item item-text-wrap">
+                  <p> If you are registered with Twilio, a text has been sent to {{phoneNumber}}, with the instructions:</p>
+                  <blockquote> 
+                    Remember to leave at {{journey.startDateTime | date: 'h:mma'}}. {{instructions}}
+                  </blockquote>
+                </div>
               </div>
 
             </ion-slide>
