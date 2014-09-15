@@ -22,7 +22,7 @@ gem 'twilio-ruby'
 gem 'rails_12factor'
 
 
-
+gem 'rack-cors', :require => 'rack/cors'
 
 
 gem 'haml-rails'
