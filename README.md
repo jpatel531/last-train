@@ -2,6 +2,8 @@
 
 Last Train is a simple web app that allows a user to plan their last journey of the evening using the TFL API. Enter a place of departure, or click 'Get My Location' to allow geolocation, then specify your destination and Twilio-registered phone number, then you should see a list of possible journeys. On choosing a journey, you can decide whether to receive a text with directions right now, or an hour before departure.
 
+In the 'lastTrain' directory, you will find the Ionic version of application.
+
 ##Heroku
 
 [Here is a link to Last Train on Heroku.](http://last-train.herokuapp.com)
@@ -26,6 +28,8 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 * Ruby
 * Rails
 * AngularJS
+* Ionic
+* Android SDK
 * Delayed::Job for ActiveRecord
 * GMapsJS
 * Twilio for Ruby
@@ -35,7 +39,3 @@ Last Train is a simple web app that allows a user to plan their last journey of 
 * jBuilder
 * Bootstrap
 * Postgresql
-
-##Planned Extensions
-
-* To create a mobile version with Ionic.
